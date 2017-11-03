@@ -1,10 +1,12 @@
 const knex = require('../db')
 
-const getAllMovies = () => {
-  console.log('get all movies model')
-  return knex('movies')
-}
+const getAllMovies = () => knex('movies')
+
+const getOneMovie = (id) => knex('movies')
+  .select('*')
+  .where('id', id)
 
 module.exports = {
-  getAllMovies
+  getAllMovies,
+  getOneMovie
 }
