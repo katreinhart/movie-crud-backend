@@ -6,7 +6,12 @@ const getOneMovie = (id) => knex('movies')
   .select('*')
   .where('id', id)
 
+const createMovie = (body) => {
+  
+}
+
 module.exports = {
   getAllMovies,
-  getOneMovie
+  getOneMovie,
+  createMovie
 }

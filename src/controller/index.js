@@ -15,7 +15,17 @@ const getOneMovie = (req, res, next) => {
   })
 }
 
+const createMovie = (req, res, next) => {
+  model.createMovie(req.body).then(movie => {
+    res.status(200).json({movie})
+  })
+  .catch(err => {
+    res.status(400).json({ error: 'Soemthing went wrong.' })
+  })
+}
+
 module.exports = {
   getAllMovies,
-  getOneMovie
+  getOneMovie,
+  createMovie
 }
