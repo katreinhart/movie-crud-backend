@@ -10,6 +10,8 @@ const createMovie = (body) => {
   
 }
 
+
+
 module.exports = {
   getAllMovies,
   getOneMovie,

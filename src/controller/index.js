@@ -24,6 +24,27 @@ const createMovie = (req, res, next) => {
   })
 }
 
+const validate = (body) => {
+  // title, director, year, rating, poster_url
+  const errors = []
+  if(!title) errors.push('title is required')
+  if(!director) errors.push('director is required')
+  if(!year) errors.push('year is required')
+  if(year < 1900 || year > 2100) errors.push('please provide a valid year')
+  if(!rating) errors.push('rating is required')
+  if(rating < 1 || rating > 5) errors.push('rating must be between 1 and 5')
+  if(!poster_url) errors.push('poster url is required')
+
+  if(errors.length) {
+    return {
+      ... body,
+      errors
+    }
+  }
+
+  return body
+}
+
 module.exports = {
   getAllMovies,
   getOneMovie,
