@@ -11,8 +11,8 @@ if(process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cors())
 
-const movieRoutes = require('./src/routes')
-app.use('/movies', movieRoutes)
+const { MoviesRouter } = require('./src/routes')
+app.use('/movies', MoviesRouter)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
