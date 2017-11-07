@@ -19,7 +19,7 @@ const create = (req, res, next) => {
     res.status(200).json({ movie }) 
   })
   .catch(err => {
-    res.status(400).json({ error: 'Something went wrong.' })
+    res.status(400).json({ error: 'Sonething went wrong.' })
   })
 }
 
@@ -28,7 +28,7 @@ const put = (req, res, next) => {
     res.status(200).json({ movie })
   })
   .catch(err => {
-    res.status(400).json({ error: 'Something went wrong.' })
+    res.status(400).json({ error: 'Soemthing went wrong.' })
   })
 }
 
