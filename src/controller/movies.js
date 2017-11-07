@@ -3,20 +3,20 @@ const fields = ['title', 'director', 'year', 'your_rating', 'poster_url']
 
 const index = (req, res, next) => {
   Movie.index().then(movies => {
-    res.status(200).json({ data: movies })
+    res.status(200).json({ movies })
   })
 }
 
 const show = (req, res, next) => {
   Movie.find(req.params.id).then(movie => {
-    if(movie) res.status(200).json({ data: movie })
+    if(movie) res.status(200).json({ movie })
     else res.status(404).json({ error: `Movie with id ${req.params.id} not found.` })
   })
 }
 
 const create = (req, res, next) => {
   Movie.create(req.body).then(movie => {
-    res.status(200).json({ data: movie }) 
+    res.status(200).json({ movie }) 
   })
   .catch(err => {
     res.status(400).json({ error: 'Something went wrong.' })
@@ -25,7 +25,7 @@ const create = (req, res, next) => {
 
 const put = (req, res, next) => {
   Movie.put(req.params.id, req.body).then(movie => {
-    res.status(200).json({ data: movie })
+    res.status(200).json({ movie })
   })
   .catch(err => {
     res.status(400).json({ error: 'Something went wrong.' })
@@ -34,7 +34,7 @@ const put = (req, res, next) => {
 
 const del = (req, res, next) => {
   Movie.del(req.params.id).then(movie => {
-    res.status(200).json({ data: movie })
+    res.status(200).json({ movie })
   })
   .catch(err => {
     res.status(400).json({ error: 'Something went wrong' })
